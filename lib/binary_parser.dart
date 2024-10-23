@@ -29,7 +29,7 @@ State eventZero(State state){
   };
 }
 
-State bitToEvent(State state, int n){
+State nextState(State state, int n){
   return switch(n){
     0 => eventZero(state),
     1 => eventOne(state),
