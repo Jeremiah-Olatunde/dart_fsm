@@ -1,25 +1,25 @@
-import 'package:dart_fsm/turnstile.dart';
+import 'package:dart_fsm/turnstile.dart' as ts;
 import 'package:test/test.dart';
 
 void main() {
-  group("finite state machine", () {
+  group("turnstile", () {
     group("state(locked)", () {
       test("input(coin)", () {
-        expect(nextState(const Locked(), const Coin()), const Unlocked());
+        expect(ts.nextState(const ts.Locked(), const ts.Coin()), const ts.Unlocked());
       });
 
       test("input(push)", () {
-        expect(nextState(const Locked(), const Push()), const Locked());
+        expect(ts.nextState(const ts.Locked(), const ts.Push()), const ts.Locked());
       });
     });
 
     group("state(unlocked)", () {
       test("input(coin)", () {
-        expect(nextState(const Unlocked(), const Coin()), const Unlocked());
+        expect(ts.nextState(const ts.Unlocked(), const ts.Coin()), const ts.Unlocked());
       });
 
       test("input(push)", () {
-        expect(nextState(const Unlocked(), const Push()), const Locked());
+        expect(ts.nextState(const ts.Unlocked(), const ts.Push()), const ts.Locked());
       });
     });
   });
